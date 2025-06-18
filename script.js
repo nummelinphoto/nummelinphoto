@@ -137,6 +137,7 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
+
 class Ball {
   constructor() {
     this.radius = 30 + Math.random() * 70;

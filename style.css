@@ -1,3 +1,4 @@
+/*FONTER*/
 @font-face {
   font-family: 'DMSans';
   src: url('/fonts/DMSans_24pt-Medium.ttf') format('truetype');
@@ -30,12 +31,12 @@ a {
   color: inherit;
 }
 
-/* Navigation */
+/* HEADER */
 nav {
   background-color: white;
-  height: 70px; /* Sätt höjd som passar loggan */
+  height: 70px; /* sätt höjd för loggan */
   display: flex;
-  align-items: center; /* Vertikal centrering */
+  align-items: center; 
   padding: 0 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: fixed;
@@ -47,21 +48,21 @@ nav {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-  height: 70px; /* Justera höjden efter behov */
+  padding: 0 60px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .logo {
-  flex-shrink: 0; /* Förhindra att loggan krymper */
+  flex-shrink: 0; /* förhindra att loggan krymper */
 }
 
 /* Loggan */
 .logo img {
   padding-top: 15px; 
-  height: 250px; /* Justera storlek på loggan */
+  height: 250px; /* justera storlek på loggan */
   width: auto;
   display: block;
 }
@@ -69,7 +70,7 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  margin-left: auto; /* Skjuter menyn åt höger */
+  margin-left: auto; /* skjuter menyn åt höger */
   gap: 30px;
 }
 
@@ -80,6 +81,7 @@ nav ul {
   gap: 30px;
   margin: 0;
   padding: 0;
+  
 }
 
 .nav-links li a {
@@ -87,11 +89,13 @@ nav ul {
   color: black;
   font-weight: 600;
   font-size: 16px;
+  
 }
 
 .nav-links li a:hover {
   color: #3eb46c; /* Hover-färg */
 }
+
 
 /* --- NAVIGATION / HEADER --- */
 .desktop-menu {
@@ -149,7 +153,7 @@ nav ul {
   background-color: #225c38;
 }
 
-
+/* PULSERANDE EFFEKT*/
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -208,8 +212,10 @@ nav ul {
   padding-top: 120px;
 }
 
+/*MY VISION TEXT BOX*/
 #new-section .content {
   background-color: rgba(0, 0, 0, 0.7);
+  font-family: 'DM Sans', sans-serif !important;
   color: white;
   padding: 10px;
   max-width: 800px;
@@ -218,13 +224,14 @@ nav ul {
   text-align: center;
 }
 
+
 #new-section h2 {
-  margin-bottom: 0;  /* Tar bort allt under-mellanrum */
+  margin-bottom: 0; 
   padding-bottom: 0;
 }
 
 #new-section p {
-  margin-top: 10px;   /* Sätter ett mindre mellanrum ovanför texten */
+  margin-top: 10px;
   padding-top: 0;
 }
 
@@ -237,19 +244,19 @@ nav ul {
 }
 
 
-/* Bakgrunder */
+/* BAKGRUNDER */
 .bg1 { background-image: url('images/photo2.jpg'); }
-.bg2 { background-image: url('images/photo3.jpg')  }
+.bg2 { background-image: url('images/photo3.jpg'); }
 .bg3 { background-image: url('images/photo4.jpg'); }
 
-/* För explore.html (bakgrundskarusell syns bakom) */
+/*bakgrundskarusell explore.html*/
 body.explore-page .bg2 {
   background-color: transparent;
   background-image: none;
 }
 
 
-/* Galleri */
+/* GALLERI */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -257,9 +264,7 @@ body.explore-page .bg2 {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap; /* här kan problemet ligga */
 }
-
 
 .gallery-grid img {
   width: 100%;
@@ -284,18 +289,18 @@ body.explore-page .bg2 {
 .gallery-item {
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;     /* Fin proportion – ej utdraget */
-  object-fit: cover;       /* Beskär bilden om det behövs */
-  border-radius: 8px;      /* Valfritt, för mjuka hörn */
+  aspect-ratio: 3 / 4;   
+  object-fit: cover; 
+  border-radius: 8px;     
 }
 
 .gallery-section h2 {
-  margin-top: 20px;        /* Tar bort eventuell defaultmarginal */
-  margin-bottom: 0px;  /* Mellan rubrik och innehåll */
+  margin-top: 20px;       
+  margin-bottom: 0px; 
 }
 
 .gallery-section {
-  margin-bottom: 60px; /* Mellan sektioner */
+  margin-bottom: 60px; 
 }
 
 .gallery-grid img:hover {
@@ -306,7 +311,7 @@ video.gallery-item {
   display: block;
   object-fit: cover;
   max-width: 100%;
-  height: 300px; /* Lägg till detta */
+  height: 300px; 
   border-radius: 10px;
 }
 
@@ -323,6 +328,12 @@ video.gallery-item {
   margin: 0 auto;
   max-width: 100%;
   height: auto;
+}
+
+.gallery-grid video {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 @media (min-width: 1024px) {
@@ -646,12 +657,21 @@ body {
   transition: top 0.4s ease;
   z-index: 1000;
   overflow-y: auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 0px;
   display: none;
+}
+
+/* Visa när aktiv */
+#mobile-menu.active {
+  display: flex;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 
 /* När menyn är öppen */
@@ -741,19 +761,23 @@ body {
 }
 
 /* Visa hamburger, mobilmeny och overlay ENDAST på mobil och explore-page */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   body.explore-page .hamburger,
   body.explore-page #mobile-menu,
   body.explore-page .menu-overlay {
     display: flex;
   }
-  nav.desktop-menu {
+
+  body.explore-page nav#desktop-menu,
+  body.explore-page .desktop-menu {
     display: none;
   }
+
   .mobile-header {
     display: flex;
   }
-  .desktop-menu {
+
+  nav .nav-links {
     display: none;
   }
 }
@@ -855,4 +879,11 @@ body {
   align-items: center;      /* centrerar vertikalt */
   background-color: rgba(0,0,0,0.8);
   z-index: 9999;
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  #mobile-menu {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
