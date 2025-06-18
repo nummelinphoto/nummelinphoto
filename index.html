@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanny Nummelin - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+<!-- Hamburger-knappen -->
+<header class="mobile-header">
+  <div class="mobile-logo">
+    <img src="images/logga.png" alt="Logga" />
+  </div>
+
+  <div class="hamburger-menu-wrapper">
+    <span class="menu-text">Menu</span>
+    <button class="hamburger" aria-label="Meny knapp" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobilmenyn som öppnas med hamburgaren -->
+<div id="mobile-menu">
+  <canvas id="background-canvas"></canvas>
+  <ul>
+    <li><a href="#start">Start</a></li>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+  
+<nav id="desktop-menu" class="desktop-menu">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logga.png" alt="Min Logga" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#start">Start</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+    <section id="start" class="section hero-start">
+        <div class="content-box">
+            <h1>Hi, I'm Fanny</h1>
+            <p>This is my portfolio for different projects. Keep scrolling and explore more!</p>
+            <a href="#about" class="cta-button">Explore</a>
+        </div>
+    </section>
+
+    <section id="about" class="section bg1">
+        <div class="content fade-in">
+            <h2>ABOUT ME</h2>
+            <p>My name is Fanny Nummelin. I'm 19 years old and I come from Stockholm, Sweden.</p>
+            <p>I have studied Design & Product Development + Computing. My biggest passion is photography, Graphic Design and Video Editing.</p>
+            <p>Through my portfolio, I want to share my vision and creativity with the world.</p>
+        </div>
+    </section>  
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section bg2">
+        <div class="content fade-in">
+            <h2>PORTFOLIO</h2>
+            <p>I’m drawn to scenes and details that speak for themselves. This is a small selection of what catches my eye — feel free to explore the rest of my portfolio!</p>
+            <a href="explore.html" class="cta-button pulse-button">See More</a>
+            <div class="gallery-grid">
+                <img src="images/photo10.webp" alt="Image 10" class="gallery-item" data-text="Geneva, Switzerland">
+                <img src="images/photo6.webp" alt="Image 6" class="gallery-item" data-text="Lake Geneva, Switzerland">
+                <img src="images/photo17.webp" alt="Image 17" class="gallery-item" data-text="Gotland, Sweden">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Photo">
+        <p id="lightbox-text"></p>
+    </div>
+
+    <section id="contact" class="section bg3">
+    <div class="content fade-in">
+        <h2>FOLLOW MY SOCIALMEDIA</h2>
+
+        <div class="contact-links">
+            <p>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:nummelinjobb@gmail.com">Email</a>
+            </p>
+
+            <p>
+                <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/fanny-nummelin-3475212a1?">LinkedIn</a>
+            </p>
+
+            <p>
+                <i class="fab fa-instagram"></i>
+                <a href="https://www.instagram.com/nummelinphoto?igsh=MWxzOHRlbGhmcThjNQ%3D%3D&utm_source=qr">Instagram</a>
+            </p>
+        </div>
+
+        <p>Feel free to reach out for inquiries, collaborations, or just to say hello!</p>
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2025 Fanny Nummelin. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/7c5f5393cc.js" crossorigin="anonymous"></script>
+</body>
+</html>

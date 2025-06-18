@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Explore - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+  <style>
+    /* Fullskärm bakgrundskarusell */
+    #background-carousel {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .carousel-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-bg.active {
+      opacity: 1;
+    }
+
+    /* Mörk overlay för kontrast (valfri) */
+    #background-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    /* Se till att innehållet är ovanpå bakgrunden */
+    body {
+      position: relative;
+      z-index: 1;
+      color: white;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    h1, h2 {
+      text-align: center;
+      padding-bottom: 60px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+  video.gallery-item {
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  </style>
+    <div id="lightbox-overlay">
+      <span class="close-btn">&times;</span>
+      <div id="lightbox-content"></div> <!-- här läggs bild eller video in -->
+      <div id="lightbox-text"></div>
+    </div>  
+
+<body class="explore-page">
+
+<!-- Hamburger-knappen -->
+<header class="mobile-header">
+  <div class="mobile-logo">
+    <img src="images/logga.png" alt="Logga" />
+  </div>
+
+  <div class="hamburger-menu-wrapper">
+    <span class="menu-text">Menu</span>
+    <button class="hamburger" aria-label="Meny knapp" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobilmenyn som öppnas med hamburgaren -->
+<div id="mobile-menu">
+  <canvas id="background-canvas"></canvas>
+  <ul>
+    <li><a href="index.html#start">Start</a></li>
+    <li><a href="#bilder">Photos</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#grafik">Graphic Design</a></li>
+  </ul>
+</div>
+  
+<nav id="desktop-menu" class="desktop-menu">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="images/logga.png" alt="Min Logga" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#start">Start</a></li>
+      <li><a href="#bilder">Photos</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#grafik">Graphic Design</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- Bakgrundsbilder -->
+  <div id="background-carousel">
+    <img src="images/photo1.jpg" class="carousel-bg" />
+    <img src="images/photo2.jpg" class="carousel-bg" />
+    <img src="images/photo4.jpg" class="carousel-bg" />
+  </div>
+
+  <!-- Mörk overlay (valfri) -->
+  <div id="background-overlay"></div>
+
+  <!-- Innehåll -->
+<section id="new-section" class="content">
+  <div class="content fade-in">
+    <h2>MY VISION</h2>
+    <p>My photography captures moments and subjects that naturally attract my attention, without a predetermined concept. 
+      Each image serves as an authentic reflection of beauty as I perceive it in the moment</p>
+      <p>In addition to photography, I enjoy editing videos—mostly creating edits when inspiration strikes, allowing me to express creativity in a dynamic way.</p>
+      <p>Feel free to explore my portfolio - and don't forget to press on the photos to see more!</p>
+  </div>
+</section>
+
+
+<section class="gallery-section" id="bilder">
+  <h2>PHOTOS</h2>
+  <div class="gallery-grid">
+    <!-- dina bilder här -->
+    <img src="images/photo1.webp" alt="Image 1" loading="lazy" class="gallery-item" data-text="Yverdon-Les-Bains, Switzerland">
+    <img src="images/photo2.webp" alt="Image 2" loading="lazy" class="gallery-item" data-text="ST Jean Alps, France">
+    <img src="images/photo3.webp" alt="Image 3" loading="lazy" class="gallery-item" data-text="Evian-Les-Bains, France">
+    <img src="images/photo4.webp" alt="Image 4" loading="lazy" class="gallery-item" data-text="Glasgow, Scotland">
+    <img src="images/photo5.webp" alt="Image 5" loading="lazy" class="gallery-item" data-text="Ålborg, Denmark">
+    <img src="images/photo6.webp" alt="Image 6" loading="lazy" class="gallery-item" data-text="Lake Geneva, Switzerland">
+    <img src="images/photo7.webp" alt="Image 7" loading="lazy" class="gallery-item" data-text="Lake Geneva, Switzerland">
+    <img src="images/photo8.webp" alt="Image 8" loading="lazy" class="gallery-item" data-text="Lake Geneva, Switzerland">
+    <img src="images/photo9.webp" alt="Image 9" loading="lazy" class="gallery-item" data-text="Lake Geneva, Switzerland">
+    <img src="images/photo10.webp" alt="Image 10" loading="lazy" class="gallery-item" data-text="Geneva, Switzerland">
+    <img src="images/photo11.webp" alt="Image 11" loading="lazy" class="gallery-item" data-text="Glasgow, Scotland">
+    <img src="images/photo12.webp" alt="Image 12" loading="lazy"class="gallery-item" data-text="Glasgow, Scotland">
+    <img src="images/photo13.webp" alt="Image 13" loading="lazy" class="gallery-item" data-text="Søndervig, Denmark">
+    <img src="images/photo14.webp" alt="Image 14" loading="lazy" class="gallery-item" data-text="Montreux, Switzerland">
+    <img src="images/photo15.webp" alt="Image 15" loading="lazy" class="gallery-item" data-text="Stockholm, Sweden">
+    <img src="images/photo16.webp" alt="Image 16" loading="lazy" class="gallery-item" data-text="Stockholm, Sweden">
+    <img src="images/photo17.webp" alt="Image 17" loading="lazy" class="gallery-item" data-text="Gotland, Sweden">
+    <img src="images/photo18.webp" alt="Image 18" loading="lazy" class="gallery-item" data-text="Zell am See, Austria">
+  </div>
+</section>
+
+ <section class="gallery-section" id="videos">
+  <h2>VIDEOS</h2>
+  <div class="gallery-grid">
+    <div class="video-thumb" data-video-src="videos/gwenfull.webm">
+      <video class="gallery-item" src="videos/gwenfull.webm" autoplay muted loop playsinline></video>
+    </div>
+    <div class="video-thumb" data-video-src="videos/hotones1.webm">
+      <video class="gallery-item" src="videos/hotones1.webm" autoplay muted loop playsinline></video>
+    </div>
+    <div class="video-thumb" data-video-src="videos/transition edit 4.webm">
+      <video class="gallery-item" src="videos/transition-edit-4.webm" autoplay muted loop playsinline></video>
+    </div>
+    <div class="video-thumb" data-video-src="videos/caitvi2.webm">
+      <video class="gallery-item" src="videos/caitvi2.webm" autoplay muted loop playsinline></video>
+    </div>
+  </div>
+</section>
+
+
+<section class="gallery-section" id="grafik">
+  <h2>GRAPHIC DESIGN</h2>
+  <div class="gallery-grid">
+    <!-- grafikobjekt här -->
+    <img src="images/gt3rs.webp" loading="lazy" alt="Image 1" class="gallery-item">
+    <img src="images/shoe1.webp" loading="lazy" alt="Image 1" class="gallery-item">
+    <img src="images/shoe2.webp" loading="lazy" alt="Image 1" class="gallery-item">
+  </div>
+</section>
+
+  
+
+  <script>
+    // Enkel bildkarusell för bakgrund
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.carousel-bg');
+      let index = 0;
+
+      function showImage(i) {
+        images.forEach((img, idx) => {
+          img.classList.toggle('active', idx === i);
+        });
+      }
+
+      showImage(index); // Visa första bilden
+
+      setInterval(() => {
+        index = (index + 1) % images.length;
+        showImage(index);
+      }, 5000); // Byt var 5:e sekund
+    });
+  </script>
+  <script src="script.js"></script>
+
+    <footer>
+        <p>&copy; 2025 Fanny Nummelin. All Rights Reserved.</p>
+    </footer>
+
+    
+</body>
+</html>

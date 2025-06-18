@@ -1,0 +1,858 @@
+@font-face {
+  font-family: 'DMSans';
+  src: url('/fonts/DMSans_24pt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Horizon';
+  src: url('/fonts/horizon.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Grundstil */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'DMSans', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-family: 'DMSans', sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+/* Navigation */
+nav {
+  background-color: white;
+  height: 70px; /* Sätt höjd som passar loggan */
+  display: flex;
+  align-items: center; /* Vertikal centrering */
+  padding: 0 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 70px; /* Justera höjden efter behov */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  flex-shrink: 0; /* Förhindra att loggan krymper */
+}
+
+/* Loggan */
+.logo img {
+  padding-top: 15px; 
+  height: 250px; /* Justera storlek på loggan */
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin-left: auto; /* Skjuter menyn åt höger */
+  gap: 30px;
+}
+
+/* Menylänkar */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  color: #3eb46c; /* Hover-färg */
+}
+
+/* --- NAVIGATION / HEADER --- */
+.desktop-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Start Hero */
+.hero-start {
+  height: 100vh;
+  background-image: url('images/photoo1.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-start::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.hero-start .content-box {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  max-width: 800px;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #b9f1c2;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #225c38;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(62, 180, 108, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(62, 180, 108, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(62, 180, 108, 0);
+  }
+}
+
+.pulse-button {
+  animation: pulse 2s infinite;
+}
+
+/* Sektioner */
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 80px 20px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  scroll-margin-top: 0px;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.section .content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+#new-section {
+  padding-top: 120px;
+}
+
+#new-section .content {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#new-section h2 {
+  margin-bottom: 0;  /* Tar bort allt under-mellanrum */
+  padding-bottom: 0;
+}
+
+#new-section p {
+  margin-top: 10px;   /* Sätter ett mindre mellanrum ovanför texten */
+  padding-top: 0;
+}
+
+@media (max-width: 600px) {
+  #new-section .content {
+    width: 90%;   
+    max-width: 300px;  
+    margin: 0 auto; 
+  }
+}
+
+
+/* Bakgrunder */
+.bg1 { background-image: url('images/photo2.jpg'); }
+.bg2 { background-image: url('images/photo3.jpg')  }
+.bg3 { background-image: url('images/photo4.jpg'); }
+
+/* För explore.html (bakgrundskarusell syns bakom) */
+body.explore-page .bg2 {
+  background-color: transparent;
+  background-image: none;
+}
+
+
+/* Galleri */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* här kan problemet ligga */
+}
+
+
+.gallery-grid img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1; /* Gör att alla rutor blir kvadratiska */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-grid video.gallery-item {
+  width: 100%;
+  height:auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: auto;
+}
+
+.gallery-item {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;     /* Fin proportion – ej utdraget */
+  object-fit: cover;       /* Beskär bilden om det behövs */
+  border-radius: 8px;      /* Valfritt, för mjuka hörn */
+}
+
+.gallery-section h2 {
+  margin-top: 20px;        /* Tar bort eventuell defaultmarginal */
+  margin-bottom: 0px;  /* Mellan rubrik och innehåll */
+}
+
+.gallery-section {
+  margin-bottom: 60px; /* Mellan sektioner */
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+video.gallery-item {
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
+  height: 300px; /* Lägg till detta */
+  border-radius: 10px;
+}
+
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-thumb video {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid video.gallery-item {
+    height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  video.gallery-item {
+    height: 500px; /* eller vilken höjd du vill ha */
+  }
+}
+
+/* För stora skärmar (desktop) */
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .gallery-grid img {
+    height: 500px;
+  }
+}
+
+/* Lightbox */
+#lightbox-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Lightbox text */
+#lightbox-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 2;
+  width: 80%;
+}
+
+#lightbox-overlay.show {
+  display: flex;
+}
+
+#lightbox-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw;
+  max-height: 80vh;
+  margin: 0 auto;
+}
+
+#lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+#lightbox-overlay p {
+  color: white;
+  margin-top: 0;
+  font-size: 12px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  max-width: fit-content;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+#lightbox-overlay video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem; /* Prova mellan 1rem och 2rem */
+}
+
+/* Footer */
+footer {
+  background: #ddd;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+/* För stora skärmar (desktop) */
+@media (min-width: 1024px) {
+  .section .content h1 {
+    font-size: 2rem;
+  }
+
+  .section .content h2 {
+    font-size: 2rem;
+  }
+
+  .section .content p {
+    font-size: 15px;
+  }
+
+  .section .content {
+    padding: 40px;
+  }
+}
+
+/* För mellan-storlek skärm (tablet) */
+@media (max-width: 1024px) {
+  .section .content h1 {
+    font-size: 1.4rem;
+  }
+  .section .content h2 {
+    font-size: 1.2rem;
+  }
+  .section .content p {
+    font-size: 1rem;
+  }
+
+  .section .content {
+    padding: 20px;
+  }
+}
+
+/* För små skärmar (mobil) */
+@media (max-width: 768px) {
+  .section .content h1 {
+    font-size: 1.5rem;
+  }
+  .section .content h2 {
+    font-size: 1.3rem;
+  }
+  .section .content p {
+    font-size: 1rem;
+  }
+
+  .section .content {
+    padding: 10px;
+  }
+
+  /* Galleri för mobil */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .gallery-item {
+    height: 150px;
+  }
+}
+
+#lightbox-overlay .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+}
+
+
+#lightbox-overlay .close-btn:hover {
+  color: #ff4444;
+}
+
+/* Rullande bakgrund */
+#background-carousel {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.carousel-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-bg.active {
+  opacity: 1;
+}
+
+/* För att innehållet ska ligga ovanpå bakgrunden */
+body {
+  position: relative;
+  z-index: 1;
+}
+
+#background-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.contact-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-links p {
+    margin: 0;
+}
+
+/* Hamburgerknapp - gömd som standard */
+.hamburger {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px; /* Ger luft runt ikonen */
+  margin: 0;
+  cursor: pointer;
+  position: static; /* ta bort fixed här */
+  padding-top: 5px;
+  z-index: 1000; /* Se till att den är överst */
+}
+
+.hamburger .bar {
+  width: 30px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Texten "Meny" */
+.menu-text {
+  font-family: 'DMSans', sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+  user-select: none;
+}
+
+.hamburger-menu-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: visible;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  font-size: 24px;
+}
+
+.text {
+  margin-right: 8px;       /* lite avstånd mellan text och ikon */
+}
+
+/* Animera hamburgare till kors när öppen */
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 9px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -9px);
+}
+
+/* Menyn är fixerat men startar ovanför viewport */
+#mobile-menu {
+  position: fixed;
+  top: -100%;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  background: #222;
+  transition: top 0.4s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0px;
+  display: none;
+}
+
+/* När menyn är öppen */
+#mobile-menu.open {
+  top: 0; 
+  display: block;
+}
+
+#mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  padding: 0; 
+  margin: 0;
+  text-align: center;
+  position: relative;
+  z-index: 1; 
+  list-style: none;
+}
+
+#mobile-menu ul li {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0; 
+  margin: 0;
+}
+
+#mobile-menu ul li a {
+  font-family: 'Horizon', sans-serif;
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  line-height: 3;
+  margin: 0 auto;
+  padding: 0; 
+}
+
+/* Mobilheader för explore.html */
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem; 
+  box-sizing: border-box; 
+  overflow: visible; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1100;
+}
+
+/* Loggan */
+.mobile-logo img {
+  padding-top: 15px; 
+  flex-shrink: 0; 
+  height: 200px; 
+  width: auto;
+  display: block;
+}
+
+/* Bakgrundsdimma - overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Visa hamburger, mobilmeny och overlay ENDAST på mobil och explore-page */
+@media (max-width: 768px) {
+  body.explore-page .hamburger,
+  body.explore-page #mobile-menu,
+  body.explore-page .menu-overlay {
+    display: flex;
+  }
+  nav.desktop-menu {
+    display: none;
+  }
+  .mobile-header {
+    display: flex;
+  }
+  .desktop-menu {
+    display: none;
+  }
+}
+
+/* Dölj hamburger, mobilmeny och overlay på större skärmar */
+@media (min-width: 769px) {
+  .hamburger,
+  #mobile-menu,
+  .menu-overlay {
+    display: none !important;
+  }
+  .mobile-header {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #desktop-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  #desktop-menu {
+    display: block; /* eller flex om du vill */
+  }
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#mobile-menu.open ul li {
+  opacity: 0;  /* starta från 0 */
+  animation-name: slideFadeIn;
+  animation-fill-mode: forwards;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+/* Använd delay för att skapa "stegvis" effekt */
+#mobile-menu.open ul li:nth-child(1) {
+  animation-delay: 0.3s;
+}
+#mobile-menu.open ul li:nth-child(2) {
+  animation-delay: 0.6s;
+}
+#mobile-menu.open ul li:nth-child(3) {
+  animation-delay: 0.9s;
+}
+#mobile-menu.open ul li:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+#background-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;  /* bakom menyns innehåll */
+}
+
+/* Standard – gäller för mobila enheter */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* För desktop (t.ex. skärmar större än 768px) */
+@media (min-width: 768px) {
+  .responsive-image {
+    max-width: 600px; /* eller 50%, 40vw etc. beroende på layout */
+    margin: 0 auto;   /* centrera bilden om du vill */
+    display: block;
+  }
+}
+
+#portfolio {
+  padding-top: 120px; /* eller prova 100px, beroende på din logga */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;  /* centrerar horisontellt */
+  align-items: center;      /* centrerar vertikalt */
+  background-color: rgba(0,0,0,0.8);
+  z-index: 9999;
+}
