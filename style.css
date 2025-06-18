@@ -670,7 +670,7 @@ body.no-scroll {
 /* När menyn är öppen */
 #mobile-menu.open {
   top: 0; 
-  display: block;
+  display: flex;
 }
 
 #mobile-menu ul {
@@ -840,13 +840,20 @@ body:not(.explore-page) #mobile-menu ul {
 }
 
 #background-canvas {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;  /* bakom menyns innehåll */
+  opacity: 0;              /* ← Gör den osynlig */
+  pointer-events: none;    /* ← Så att den inte fångar klick */
+  transition: opacity 0.3s ease;
+}
+
+#mobile-menu.open #background-canvas {
+  opacity: 1;              /* ← Gör den synlig när menyn är öppen */
+  pointer-events: auto;
 }
 
 /* Standard – gäller för mobila enheter */
