@@ -656,6 +656,8 @@ body {
   justify-content: center;
   padding-top: 0px;
   display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 /* Visa när aktiv */
@@ -669,6 +671,7 @@ body.no-scroll {
 
 /* När menyn är öppen */
 #mobile-menu.open {
+  opacity: 1;
   top: 0; 
   display: flex;
 }
@@ -731,7 +734,7 @@ body.no-scroll {
 /* Flytta ned länkarna 90 px (= header 70 px + 20 px luft)
    på sidor som INTE har body.explore-page */
 body:not(.explore-page) #mobile-menu ul {
-  margin-top: 90px;
+  margin-top: 60px;
 
 }
 
